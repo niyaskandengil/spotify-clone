@@ -13,7 +13,7 @@ export default function Sidebar() {
         </div>
         <ul>
             <li>
-                <mdHomeFilled/>
+                <mdHomeFilled />
                 <span>Home</span>
             </li>
 
@@ -33,4 +33,16 @@ export default function Sidebar() {
 
 const Container = styled.div`
     background-color: black;
+    color: #b3b3b3;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    .top__links{
+        display: flex;
+        flex-direction: column;
+        .logo{
+            
+        }
+    }
 `;

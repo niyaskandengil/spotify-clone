@@ -38,11 +38,10 @@ const Container = styled.div`
     width: 100%;
     background: linear-gradient(transparent, rgba(0,0,0,1));
     background-color: rgb(32,87,100);
-  }
-  .body{
+   .body{
     height: 100%;
     width: 100%;
     overflow: auto;
-    
+   }
   }
   `;
