@@ -1,9 +1,10 @@
 import React,{useEffect} from 'react'
 import { useStateProvider } from '../utils/StateProvider'
 import axios from 'axios';
+import { reducerCases } from '../utils/Constants';
 export default function Playlists() {
 
-    const [{token,dispatch}]=useStateProvider();    
+    const [{token,playlists},dispatch]=useStateProvider();    
     useEffect(() => {
         const getPlaylistData = async () => {
             const response = await axios.get(
@@ -16,13 +17,21 @@ export default function Playlists() {
                 }
             );
             const  {items}  = response.data;
-            console.log(items);
-        };
+            const playlists = items.map(({name, id}) => {
+              return {name, id};
+        });
+        dispatch({type:reducerCases.SET_PLAYLISTS,playlists});
+      };
         getPlaylistData();
     },[token,dispatch]);
+
   return (
     <div>
-      Playlists
+      <ul>
+        {playlists.map(({name,id}) => {
+            return <li key={id}>{name}</li>;})
+        }
+      </ul>
     </div>
   )
 }
