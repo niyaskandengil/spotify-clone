@@ -4,7 +4,11 @@ import styled from 'styled-components'
 export default function Sidebar() {
   return (
     <Container>
-      Sidebar
+      <div className="top__links">
+        <div className="logo">
+            
+        </div>
+      </div>
     </Container>
   )
 }
