@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components';
+import Sidebar from './Sidebar';
 
 
 export default function Spotify() {
   return (
     <Container>
       <div className="spotify__body">
+        <Sidebar />
         <div className="body">
             <div className="body__contents">
 
@@ -13,7 +15,7 @@ export default function Spotify() {
         </div>
       </div>
       <div className="spotify__footer">
-        
+
       </div>
     </Container>
   )
