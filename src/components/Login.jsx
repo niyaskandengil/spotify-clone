@@ -4,11 +4,22 @@ import styled from 'styled-components';
 export default function Login() {
   const handleClick = () => {
     const client_id = 'b7059438159748cbb7277745d5135a7c'; 
-    const redirect_uri = 'http://localhost:3001/';
+    const redirectUrl = 'http://localhost:3001/';
     const apiUrl = "https://accounts.spotify.com/authorize";
-    const scopes = ['user-read-email','user-read-private','user-read-playback-state','user-modify-playback-state','user-read-currently-playing'];
-  
-  }
+    const scopes = [
+      'user-read-email',
+      'user-read-private',
+      'user-read-playback-state',
+      'user-modify-playback-state',
+      'user-read-currently-playing',
+      'user-read-recently-played',
+      'user-top-read',
+      'user-read-playback-position'
+    ];
+    window.location.href = `${apiUrl}?client_id=${client_id}&redirect_uri=${redirectUrl}&scope=${scopes.join(
+      " "
+      )}&response_type=token&show_dialog=true}`
+  };
   return (
     <Container>
       <img src='https://i.ibb.co/gtfJvBy/Spotify-Logo-Black.png' alt='spotify'/>
