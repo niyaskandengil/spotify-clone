@@ -15,7 +15,8 @@ export default function Playlists() {
                    },
                 }
             );
-            console.log(response);
+            const  {items}  = response.data;
+            console.log(items);
         };
         getPlaylistData();
     },[token,dispatch]);
