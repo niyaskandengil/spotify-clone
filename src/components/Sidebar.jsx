@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {IoLibrary} from 'react-icons/io5';
-import {mdHomeFilled, MdSearch} from 'react-icons/md';
+import { MdHomeFilled, MdSearch} from 'react-icons/md';
 
 export default function Sidebar() {
   return (
@@ -13,7 +13,7 @@ export default function Sidebar() {
         </div>
         <ul>
             <li>
-                <mdHomeFilled />
+                <MdHomeFilled />
                 <span>Home</span>
             </li>
 
@@ -42,7 +42,11 @@ const Container = styled.div`
         display: flex;
         flex-direction: column;
         .logo{
-            
+            text-align: center;
+            margin: 1rem 0;
+            img{
+                max-inline-size: 80%;
+            }
         }
     }
 `;
