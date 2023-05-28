@@ -48,5 +48,21 @@ const Container = styled.div`
                 max-inline-size: 80%;
             }
         }
+        ul{
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 1rem;
+            li{
+                display: flex;
+                gap: 1rem;
+                cursor: pointer ;
+                transition:0.3s ease-in-out;
+                &:hover{
+                    color: white;
+                }
+            }
+        }
     }
 `;
