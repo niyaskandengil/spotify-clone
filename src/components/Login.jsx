@@ -23,7 +23,7 @@ export default function Login() {
   return (
     <Container>
       <img src='https://i.ibb.co/gtfJvBy/Spotify-Logo-Black.png' alt='spotify'/>
-      <button onClick={handleClick}>Connect with Spotify</button>
+      <button onClick={handleClick}>Login</button>
     </Container>
   )
 }
