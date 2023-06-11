@@ -22,7 +22,7 @@ export default function Spotify() {
            },
         }
       );
-      console.log( {data });
+
       
       const userInfo = {
         userId: data.id,
