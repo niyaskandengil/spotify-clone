@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { AiFillClockCircle } from "react-icons/ai";
 import { useStateProvider } from "../utils/StateProvider";
 import axios from "axios";
+import { reducerCases } from "../utils/Constants";
 
 export default function Body() {
-  const [{ token, selectedPlaylistId }, dispatch] = useStateProvider();
+  const [{ token, selectedPlaylistId, selectedPlaylist }, dispatch] = useStateProvider();
 
   useEffect(() => {
     const getIntialPlaylist = async () => {
@@ -36,11 +37,69 @@ export default function Body() {
         
         })),
        };
-      
+      dispatch({ type: reducerCases.SET_PLAYLIST, selectedPlaylist });
     };
     getIntialPlaylist();
-  }, [token, dispatch]);
-  return <Container>Body 122</Container>;
+  }, [token, dispatch,selectedPlaylistId]);
+  return <Container>
+    {
+      selectedPlaylist && (
+        <>
+          <div className="playlist">
+            <div className="image">
+              <img src={selectedPlaylist.image} alt="selectedplaylist" />
+            </div>
+            <div className="details">
+              <span className="type">PLAYLIST</span>
+              <h1 className="title">{selectedPlaylist.name}</h1>
+              <p className="description">{selectedPlaylist.description}</p>
+            </div>
+          </div>
+          <div className="list">
+            <div className="header__row">
+              <div className="col">
+                <span>#</span>
+              </div>
+              <div className="col">
+                <span>TITLE</span>
+              </div>
+              <div className="col">
+                <span>ALBUM</span>
+              </div>
+              <div className="col">
+                <span>
+                  <AiFillClockCircle />
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="tracks">
+            {
+              selectedPlaylist.tracks.map({
+                id,
+                name,
+                artist,
+                image,
+                duration,
+                album,
+                context_uri,
+                track_number,
+              },index) => (
+                return(
+                  <div className="track__row">
+                    <div className="col">
+                      <span>{track_number}</span>
+                    </div>
+
+                )
+
+            }
+          </div>
+        </>
+      )
+    }
+  </Container>;
 }
 
 const Container = styled.div``;
