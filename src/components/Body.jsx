@@ -42,8 +42,7 @@ export default function Body() {
     getIntialPlaylist();
   }, [token, dispatch,selectedPlaylistId]);
   return <Container>
-    {
-      selectedPlaylist && (
+    {selectedPlaylist && (
         <>
           <div className="playlist">
             <div className="image">
@@ -55,6 +54,7 @@ export default function Body() {
               <p className="description">{selectedPlaylist.description}</p>
             </div>
           </div>
+
           <div className="list">
             <div className="header__row">
               <div className="col">
@@ -72,29 +72,42 @@ export default function Body() {
                 </span>
               </div>
             </div>
-          </div>
 
-          <div className="tracks">
+            <div className="tracks">
             {
-              selectedPlaylist.tracks.map({
-                id,
-                name,
-                artist,
-                image,
-                duration,
-                album,
-                context_uri,
-                track_number,
-              },index) => (
-                return(
-                  <div className="track__row">
+              selectedPlaylist.tracks.map
+              ((
+                {
+                  id,
+                  name,
+                  artist,
+                  image,
+                  duration,
+                  album,
+                  context_uri,
+                  track_number,
+              },
+              index
+              ) => {
+                return (
+                  <div className="row" key={id}>
                     <div className="col">
-                      <span>{track_number}</span>
+                      <span>{index+1}</span>
                     </div>
-
-                )
-
-            }
+                    <div className="col detail">
+                      <img src={image} alt="track" />
+                    </div>
+                    <div className="info">
+                      <span className="name">{name}</span>
+                      <span>{artist}</span>
+                    </div>
+                    <div className="col">
+                      <span>{duration}</span>
+                    </div>
+                  </div>  
+                );
+            })}
+            </div>
           </div>
         </>
       )
