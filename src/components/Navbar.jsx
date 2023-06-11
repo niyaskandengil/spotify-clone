@@ -28,7 +28,7 @@ const Container = styled.div`
     align-items: center;
     padding: 2rem;
     height: 15vh;
-    postion:sticky;
+    postion: sticky;
     top:0;
     transition: 0.3s ease-in-out;
     background-color: none;
